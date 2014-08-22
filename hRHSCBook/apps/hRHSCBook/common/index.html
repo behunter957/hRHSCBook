@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hRHSCBook</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+<link rel="stylesheet" href="css/main.css">
+<script>window.$ = window.jQuery = WLJQ;</script>
+</head>
+<body style="display: none;">
+	<!--application UI goes here-->
+	<div id="mainview">
+		<div id="buttonbar">
+			<div id="courtbuttonbar">
+				<select id="courtselect" name="courtselect">
+					<option selected>All</option>
+					<option>Singles</option>
+					<option>Doubles</option>
+					<option>Front</option>
+					<option>Back</option>
+				</select>
+				<button type="button" id="datebutton" name="datebutton">Friday, August 22</button>
+				<input type="checkbox" id="includecheck" name="Bookings"><label>Bookings</label>
+			</div>
+			<div id="bookingbuttonbar" hidden="true"></div>
+			<div id="memberbuttonbar" hidden="true"></div>
+		</div>
+		<div id="listview">
+			<div id="courtlistview">
+			Courts list
+			</div>
+			<div id="bookinglistview" hidden="true">
+			My Bookings list
+			</div>
+			<div id="memberlistview" hidden="true">
+			Members list
+			</div>
+		</div>
+		<div id="tabbar">
+			<span id="courttabbutton">Courts</span>
+			<span id="bookingtabbutton">My Bookings</span>
+			<span id="membertabbutton">Members</span>
+		</div>
+		<script type="text/javascript">
+		$(document).ready( function() { 
+			$('#courttabbutton').click( function() { 
+				$('#bookingbuttonbar').hide(); 
+				$('#bookinglistview').hide(); 
+				$('#memberbuttonbar').hide(); 
+				$('#memberlistview').hide(); 
+				$('#courtbuttonbar').show(); 
+				$('#courtlistview').show(); 
+			}); 
+			$('#bookingtabbutton').click( function() { 
+				$('#memberbuttonbar').hide(); 
+				$('#memberlistview').hide(); 
+				$('#courtbuttonbar').hide(); 
+				$('#courtlistview').hide(); 
+				$('#bookingbuttonbar').show(); 
+				$('#bookinglistview').show(); 
+			}); 
+			$('#membertabbutton').click( function() { 
+				$('#courtbuttonbar').hide(); 
+				$('#courtlistview').hide(); 
+				$('#bookingbuttonbar').hide(); 
+				$('#bookinglistview').hide(); 
+				$('#memberbuttonbar').show(); 
+				$('#memberlistview').show(); 
+			}); 
+		});
+		</script>
+	</div>
+	<div id="singlesview" hidden="true">
+	Singles View
+	</div>
+	<div id="doublesview" hidden="true">
+	Doubles View
+	</div>
+	<div id="bookingview" hidden="true">
+	My Bookings
+	</div>
+	<div id="memberview" hidden="true">
+	Member View
+	</div>
+	<script src="js/initOptions.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/messages.js"></script>
+</body>
+</html>
