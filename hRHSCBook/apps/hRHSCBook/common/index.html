@@ -12,10 +12,10 @@
 <link rel="stylesheet" href="css/main.css">
 <script>window.$ = window.jQuery = WLJQ;</script>
 </head>
-<body style="display: none;">
+<body>
 	<!--application UI goes here-->
 	<div id="mainview">
-		<div id="buttonbar">
+		<div id="buttonbar"">
 			<div id="courtbuttonbar">
 				<select id="courtselect" name="courtselect">
 					<option selected>All</option>
@@ -30,9 +30,18 @@
 			<div id="bookingbuttonbar" hidden="true"></div>
 			<div id="memberbuttonbar" hidden="true"></div>
 		</div>
-		<div id="listview">
+		<div id="listview" style="overflow:auto;">
 			<div id="courtlistview">
-			Courts list
+				<table id="courtlisttable">
+					<tbody>
+						<tr><td>1</td></tr>
+						<tr><td>1</td></tr>
+						<tr><td>1</td></tr>
+						<tr><td>1</td></tr>
+						<tr><td>1</td></tr>
+						<tr><td>1</td></tr>
+					</tbody>
+				</table>
 			</div>
 			<div id="bookinglistview" hidden="true">
 			My Bookings list
@@ -54,7 +63,10 @@
 				$('#memberbuttonbar').hide(); 
 				$('#memberlistview').hide(); 
 				$('#courtbuttonbar').show(); 
-				$('#courtlistview').show(); 
+				$('#courtlistview').show();
+				var contentHeight = $(window).height() - $("#buttonbar").height() - $("#tabbar").height();
+				$("#listview").height(contentHeight);
+				refreshCourts();
 			}); 
 			$('#bookingtabbutton').click( function() { 
 				$('#memberbuttonbar').hide(); 
@@ -63,6 +75,8 @@
 				$('#courtlistview').hide(); 
 				$('#bookingbuttonbar').show(); 
 				$('#bookinglistview').show(); 
+				var contentHeight = $(window).height() - $("#buttonbar").height() - $("#tabbar").height();
+				$("#listview").height(contentHeight);
 			}); 
 			$('#membertabbutton').click( function() { 
 				$('#courtbuttonbar').hide(); 
@@ -71,7 +85,11 @@
 				$('#bookinglistview').hide(); 
 				$('#memberbuttonbar').show(); 
 				$('#memberlistview').show(); 
+				var contentHeight = $(window).height() - $("#buttonbar").height() - $("#tabbar").height();
+				$("#listview").height(contentHeight);
 			}); 
+			$('#courttabbutton').trigger("click");
+//			$('#courtlisttable tbody > tr').remove();
 		});
 		</script>
 	</div>
@@ -90,5 +108,6 @@
 	<script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/messages.js"></script>
+	<script src="js/courtlist.js"></script>
 </body>
 </html>
